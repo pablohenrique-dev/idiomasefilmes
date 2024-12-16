@@ -1,0 +1,9 @@
+{
+  "HomePage": {
+    "title": "Olá mundo!",
+    "about": "Ir para a página sobre"
+  },
+  "AboutPage": {
+    "title": "Página sobre"
+  }
+}
