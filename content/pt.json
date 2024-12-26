@@ -1,9 +1,19 @@
 {
   "HomePage": {
-    "title": "Olá mundo!",
+    "title": "Treine seu listening em um novo idioma com a ajuda de filmes",
     "about": "Ir para a página sobre"
   },
   "AboutPage": {
     "title": "Página sobre"
+  },
+  "Components": {
+    "Button": {
+      "SignIn": "Entrar",
+      "CloseMobileMenu": "Fechar"
+    },
+    "filter": {
+      "level": "Nível"
+    },
+    "SelectLanguageLabel": "Selecione um idioma:"
   }
 }

@@ -1,9 +1,19 @@
 {
   "HomePage": {
-    "title": "Hello world!",
+    "title": "Train your listening in a new language with the help of movies",
     "about": "Go to the about page"
   },
   "AboutPage": {
     "title": "About page"
+  },
+  "Components": {
+    "Button": {
+      "SignIn": "Sign in",
+      "CloseMobileMenu": "Close"
+    },
+    "filter": {
+      "level": "Level"
+    },
+    "SelectLanguageLabel": "Select a language:"
   }
 }
