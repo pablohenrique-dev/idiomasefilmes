@@ -5,7 +5,7 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../../app/globals.css";
-import Header from "@/components/ui/header";
+import Header from "@/components/header";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
