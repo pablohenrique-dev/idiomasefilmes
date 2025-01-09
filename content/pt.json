@@ -3,14 +3,60 @@
     "title": "Treine seu listening em um novo idioma com a ajuda de filmes",
     "about": "Ir para a página sobre"
   },
-  "AboutPage": {
-    "title": "Página sobre"
+  "CreateScenePage": {
+    "title": "Criar cena",
+    "form": {
+      "title": {
+        "label": "Título",
+        "placeholder": "Título da cena",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "origin": {
+        "label": "Origem",
+        "placeholder": "Ex: Harry Potter/Breaking Bad...",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "thumb": {
+        "label": "Foto de capa",
+        "placeholder": "Link da foto de capa",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "scene": {
+        "label": "Link da cena",
+        "placeholder": "Link da cena",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "script": {
+        "label": "Script da cena",
+        "placeholder": "",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "level": {
+        "label": "Nível",
+        "placeholder": "Selecione um nível",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "accent": {
+        "label": "Sotaque",
+        "placeholder": "Selecione o sotaque",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "genre": {
+        "label": "Gênero",
+        "placeholder": "Selecione um ou mais gêneros",
+        "lengthErrorMessage": "Pelo menos um valor precisa ser selecionado"
+      }
+    }
   },
   "Components": {
     "Button": {
       "SignIn": "Entrar",
-      "CloseMobileMenu": "Fechar"
+      "close": "Fechar",
+      "clear": "Limpar",
+      "create": "Criar"
     },
+    "search": "Pesquisar...",
+    "selectAll": "Selecionar todos",
     "filter": {
       "level": "Nível"
     },

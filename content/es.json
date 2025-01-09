@@ -1,19 +1,65 @@
 {
   "HomePage": {
-    "title": "Entrena tu escucha en un nuevo idioma con la ayuda de películas",
-    "about": "Ir a la página acerca de"
+    "title": "Entrena tu listening en un nuevo idioma con la ayuda de películas",
+    "about": "Ir a la página sobre"
   },
-  "AboutPage": {
-    "title": "Página acerca de"
+  "CreateScenePage": {
+    "title": "Crear escena",
+    "form": {
+      "title": {
+        "label": "Título",
+        "placeholder": "Título de la escena",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "origin": {
+        "label": "Origen",
+        "placeholder": "Ej: Harry Potter/Breaking Bad...",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "thumb": {
+        "label": "Foto de portada",
+        "placeholder": "Enlace de la foto de portada",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "scene": {
+        "label": "Enlace de la escena",
+        "placeholder": "Enlace de la escena",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "script": {
+        "label": "Guion de la escena",
+        "placeholder": "",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "level": {
+        "label": "Nivel",
+        "placeholder": "Selecciona un nivel",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "accent": {
+        "label": "Acento",
+        "placeholder": "Selecciona un acento",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "genre": {
+        "label": "Género",
+        "placeholder": "Selecciona uno o más géneros",
+        "lengthErrorMessage": "Al menos un valor debe ser seleccionado"
+      }
+    }
   },
   "Components": {
     "Button": {
       "SignIn": "Entrar",
-      "CloseMobileMenu": "Cerrar"
+      "close": "Cerrar",
+      "clear": "Limpiar",
+      "create": "Crear"
     },
+    "search": "Buscar...",
+    "selectAll": "Seleccionar todos",
     "filter": {
       "level": "Nivel"
     },
-    "SelectLanguageLabel": "Selecione um idioma:"
+    "SelectLanguageLabel": "Selecciona un idioma:"
   }
 }

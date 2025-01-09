@@ -3,14 +3,60 @@
     "title": "Train your listening in a new language with the help of movies",
     "about": "Go to the about page"
   },
-  "AboutPage": {
-    "title": "About page"
+  "CreateScenePage": {
+    "title": "Create Scene",
+    "form": {
+      "title": {
+        "label": "Title",
+        "placeholder": "Scene title",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "origin": {
+        "label": "Origin",
+        "placeholder": "Ex: Harry Potter/Breaking Bad...",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "thumb": {
+        "label": "Cover photo",
+        "placeholder": "Cover photo link",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "scene": {
+        "label": "Scene link",
+        "placeholder": "Scene link",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "script": {
+        "label": "Scene script",
+        "placeholder": "",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "level": {
+        "label": "Level",
+        "placeholder": "Select a level",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "accent": {
+        "label": "Accent",
+        "placeholder": "Select an accent",
+        "lengthErrorMessage": "This field needs to be filled"
+      },
+      "genre": {
+        "label": "Genre",
+        "placeholder": "Select one or more genres",
+        "lengthErrorMessage": "At least one value needs to be selected"
+      }
+    }
   },
   "Components": {
     "Button": {
-      "SignIn": "Sign in",
-      "CloseMobileMenu": "Close"
+      "SignIn": "Sign In",
+      "close": "Close",
+      "clear": "Clear",
+      "create": "Create"
     },
+    "search": "Search...",
+    "selectAll": "Select all",
     "filter": {
       "level": "Level"
     },
