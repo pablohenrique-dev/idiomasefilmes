@@ -1,7 +1,3 @@
-import Image from "next/image";
-import { MobileMenu } from "./mobile-menu";
-import { SelectLanguage } from "./select-language";
-import SignIn from "./signin-button";
 import { auth } from "@/auth";
 import {
   DropdownMenu,
@@ -11,8 +7,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SignOut } from "./signout-button";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
+import { MobileMenu } from "./mobile-menu";
+import { SelectLanguage } from "./select-language";
+import SignIn from "./signin-button";
+import { SignOut } from "./signout-button";
 
 const languages = [
   {

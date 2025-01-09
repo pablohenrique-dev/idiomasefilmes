@@ -66,7 +66,7 @@ export function MobileMenu({
             <h1 className="text-base font-bold sm:text-lg">IDIOMAS E FILMES</h1>
           </Link>
           <Button variant="ghost" onClick={handleCloseMenu}>
-            {t("Button.CloseMobileMenu")}
+            {t("Button.close")}
           </Button>
         </div>
         <div className="flex w-full flex-1 flex-col justify-between gap-4">

@@ -16,7 +16,7 @@ export default function SignIn() {
       {t("Button.SignIn")}{" "}
       <Image
         src="/discord-icon.svg"
-        alt="Flag"
+        alt="discord icon"
         width={30}
         height={10}
         className="h-auto w-[18px]"
