@@ -6,14 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-
-const flags = {
-  american: "/us.svg",
-  british: "/gb.svg",
-  other: "/wf.svg",
-  australian: "/au.svg",
-  "south-african": "/za.svg",
-};
+import { flags } from "@/utils/constants/flags";
 
 export default async function HomePage({
   params,
