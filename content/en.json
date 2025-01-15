@@ -4,49 +4,52 @@
     "about": "Go to the about page"
   },
   "CreateScenePage": {
-    "title": "Create Scene",
+    "title": "Create scene",
     "form": {
       "title": {
         "label": "Title",
         "placeholder": "Scene title",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "origin": {
         "label": "Origin",
         "placeholder": "Ex: Harry Potter/Breaking Bad...",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "thumb": {
         "label": "Cover photo",
         "placeholder": "Cover photo link",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "scene": {
         "label": "Scene link",
         "placeholder": "Scene link",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "script": {
         "label": "Scene script",
         "placeholder": "",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "level": {
         "label": "Level",
         "placeholder": "Select a level",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "accent": {
         "label": "Accent",
         "placeholder": "Select an accent",
-        "lengthErrorMessage": "This field needs to be filled"
+        "lengthErrorMessage": "This field must be filled in"
       },
       "genre": {
         "label": "Genre",
         "placeholder": "Select one or more genres",
-        "lengthErrorMessage": "At least one value needs to be selected"
+        "lengthErrorMessage": "At least one value must be selected"
       }
     }
+  },
+  "SingleScenePage": {
+    "listTitle": "Other scenes"
   },
   "Components": {
     "Button": {

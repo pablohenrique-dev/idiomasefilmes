@@ -48,6 +48,9 @@
       }
     }
   },
+  "SingleScenePage": {
+    "listTitle": "Outras cenas"
+  },
   "Components": {
     "Button": {
       "SignIn": "Entrar",

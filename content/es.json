@@ -1,6 +1,6 @@
 {
   "HomePage": {
-    "title": "Entrena tu listening en un nuevo idioma con la ayuda de películas",
+    "title": "Entrena tu comprensión auditiva en un nuevo idioma con la ayuda de películas",
     "about": "Ir a la página sobre"
   },
   "CreateScenePage": {
@@ -44,9 +44,12 @@
       "genre": {
         "label": "Género",
         "placeholder": "Selecciona uno o más géneros",
-        "lengthErrorMessage": "Al menos un valor debe ser seleccionado"
+        "lengthErrorMessage": "Debe seleccionarse al menos un valor"
       }
     }
+  },
+  "SingleScenePage": {
+    "listTitle": "Otras escenas"
   },
   "Components": {
     "Button": {
