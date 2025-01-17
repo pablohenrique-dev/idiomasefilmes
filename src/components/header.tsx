@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { MobileMenu } from "./mobile-menu";
 import { SelectLanguage } from "./select-language";
@@ -44,6 +45,7 @@ interface HeaderProps {
 
 export default async function Header({ locale: defaultLocale }: HeaderProps) {
   const session = await auth();
+  const t = await getTranslations("Components");
 
   return (
     <header className="animate-fade-bottom">
@@ -88,6 +90,17 @@ export default async function Header({ locale: defaultLocale }: HeaderProps) {
                     {/* <DropdownMenuItem>Profile</DropdownMenuItem>
                     <DropdownMenuItem>Billing</DropdownMenuItem>
                     <DropdownMenuItem>Team</DropdownMenuItem> */}
+                    {session.user.role === "ADMIN" && (
+                      <DropdownMenuItem>
+                        <Link
+                          className="w-full rounded-lg bg-[#F5F5F5] px-4 py-2 text-center"
+                          href={`${defaultLocale}/create-scene`}
+                        >
+                          {t("Button.create")}
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+
                     <DropdownMenuItem>
                       <SignOut />
                     </DropdownMenuItem>
