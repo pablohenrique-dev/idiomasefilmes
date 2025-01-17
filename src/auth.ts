@@ -7,7 +7,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       id: string;
-      // role: "ADMIN" | "USER";
+      role: "ADMIN" | "USER";
       /**
        * By default, TypeScript merges new interface properties and overwrites existing ones.
        * In this case, the default session user properties will be overwritten,
@@ -20,7 +20,13 @@ declare module "next-auth" {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  providers: [Discord],
+  providers: [
+    Discord({
+      profile(profile) {
+        return { role: profile.role ?? "USER", ...profile };
+      },
+    }),
+  ],
   callbacks: {
     session({ session, user }) {
       session.user.id = user.id;
