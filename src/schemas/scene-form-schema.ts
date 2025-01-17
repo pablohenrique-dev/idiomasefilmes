@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-export const createSceneFormSchema = (t: ReturnType<typeof useTranslations>) =>
+export const sceneFormSchema = (t: ReturnType<typeof useTranslations>) =>
   z.object({
     title: z.string().min(1, { message: t("form.title.lengthErrorMessage") }),
     script: z.string().min(1, { message: t("form.script.lengthErrorMessage") }),
@@ -19,6 +19,4 @@ export const createSceneFormSchema = (t: ReturnType<typeof useTranslations>) =>
     }),
   });
 
-export type CreateSceneFormType = z.infer<
-  ReturnType<typeof createSceneFormSchema>
->;
+export type sceneFormType = z.infer<ReturnType<typeof sceneFormSchema>>;

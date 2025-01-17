@@ -1,5 +1,6 @@
 "use client";
 
+import { createSceneAction } from "@/actions/create-scene";
 import { Editor } from "@/components/editor";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,19 +20,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useSceneForm } from "@/hooks/use-scene-form";
 import {
   accentOptions,
   genreOptions,
   levelOptions,
-} from "@/utils/constants/create-scene";
-import { useCreateSceneForm } from "./use-create-scene-form";
+} from "@/utils/constants/scene";
 
 interface CreateSceneFormProps {
   locale: string;
 }
 
 export function CreateSceneForm({ locale }: CreateSceneFormProps) {
-  const { form, t, t2, onSubmit } = useCreateSceneForm({ locale });
+  const { form, t, t2, onSubmit } = useSceneForm({
+    locale,
+    action: createSceneAction,
+    defaultValues: {
+      accent: undefined,
+      genre: undefined,
+      level: "",
+      scene_url: "",
+      script: "",
+      source: "",
+      thumb_url: "",
+      title: "",
+    },
+  });
 
   return (
     <Form {...form}>
