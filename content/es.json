@@ -3,8 +3,13 @@
     "title": "Entrena tu comprensión auditiva en un nuevo idioma con la ayuda de películas",
     "about": "Ir a la página sobre"
   },
-  "CreateScenePage": {
-    "title": "Crear escena",
+  "ScenePage": {
+    "create": {
+      "title": "Crear escena"
+    },
+    "edit": {
+      "title": "Editar escena"
+    },
     "form": {
       "title": {
         "label": "Título",
@@ -56,13 +61,18 @@
       "SignIn": "Entrar",
       "close": "Cerrar",
       "clear": "Limpiar",
-      "create": "Crear"
+      "create": "Crear",
+      "edit": "Editar",
+      "exclude": "Eliminar"
     },
     "search": "Buscar...",
     "selectAll": "Seleccionar todos",
     "filter": {
       "level": "Nivel"
     },
-    "SelectLanguageLabel": "Selecciona un idioma:"
+    "SelectLanguageLabel": "Selecciona un idioma:",
+    "confirmMessage": {
+      "delete": "¿Realmente deseas eliminar esta escena?"
+    }
   }
 }

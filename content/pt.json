@@ -3,8 +3,13 @@
     "title": "Treine seu listening em um novo idioma com a ajuda de filmes",
     "about": "Ir para a página sobre"
   },
-  "CreateScenePage": {
-    "title": "Criar cena",
+  "ScenePage": {
+    "create": {
+      "title": "Criar cena"
+    },
+    "edit": {
+      "title": "Editar cena"
+    },
     "form": {
       "title": {
         "label": "Título",
@@ -56,13 +61,18 @@
       "SignIn": "Entrar",
       "close": "Fechar",
       "clear": "Limpar",
-      "create": "Criar"
+      "create": "Criar",
+      "edit": "Editar",
+      "exclude": "Excluir"
     },
     "search": "Pesquisar...",
     "selectAll": "Selecionar todos",
     "filter": {
       "level": "Nível"
     },
-    "SelectLanguageLabel": "Selecione um idioma:"
+    "SelectLanguageLabel": "Selecione um idioma:",
+    "confirmMessage": {
+      "delete": "Deseja realmente excluir essa cena?"
+    }
   }
 }

@@ -3,8 +3,13 @@
     "title": "Train your listening in a new language with the help of movies",
     "about": "Go to the about page"
   },
-  "CreateScenePage": {
-    "title": "Create scene",
+  "ScenePage": {
+    "create": {
+      "title": "Create scene"
+    },
+    "edit": {
+      "title": "Edit scene"
+    },
     "form": {
       "title": {
         "label": "Title",
@@ -56,13 +61,18 @@
       "SignIn": "Sign In",
       "close": "Close",
       "clear": "Clear",
-      "create": "Create"
+      "create": "Create",
+      "edit": "Edit",
+      "exclude": "Delete"
     },
     "search": "Search...",
     "selectAll": "Select all",
     "filter": {
       "level": "Level"
     },
-    "SelectLanguageLabel": "Select a language:"
+    "SelectLanguageLabel": "Select a language:",
+    "confirmMessage": {
+      "delete": "Do you really want to delete this scene?"
+    }
   }
 }
