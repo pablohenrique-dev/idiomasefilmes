@@ -32,7 +32,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  Scene Scene[]
+  Scene      Scene[]
+  LikedScene LikedScene[]
 }
 
 model Account {
@@ -89,6 +90,18 @@ model Scene {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  author   User   @relation(fields: [authorId], references: [id])
-  authorId String
+  author     User         @relation(fields: [authorId], references: [id])
+  authorId   String
+  LikedScene LikedScene[]
+}
+
+model LikedScene {
+  id        String   @id @default(uuid())
+  userId    String
+  sceneId   String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  scene     Scene    @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([userId, sceneId])
 }
