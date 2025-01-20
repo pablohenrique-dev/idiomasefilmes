@@ -12,6 +12,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DeleteSceneButton } from "./delete-scene-button";
+import { LikeSceneButton } from "./like-scene-button";
+import { Metadata } from "next";
 
 interface ScenePageParams {
   params: {
@@ -23,11 +25,14 @@ interface ScenePageParams {
 export default async function ScenePage({ params }: ScenePageParams) {
   const session = await auth();
 
-  const { data: scene } = await getSceneData(params.slug);
+  const { data: scene } = await getSceneData(params.slug, session?.user.id);
   const { data } = await getScenesData({ slug: scene?.slug });
 
   const t = await getTranslations("SingleScenePage");
   const t2 = await getTranslations("Components");
+
+  const isUserLogged = () => !!session?.user;
+  const isUserAdmin = () => session?.user.role === "ADMIN";
 
   if (!scene) return notFound();
   return (
@@ -62,18 +67,36 @@ export default async function ScenePage({ params }: ScenePageParams) {
                 {dayjs(scene.createdAt).format("DD/MM/YYYY")}
               </p>
             </div>
-            {session?.user.role === "ADMIN" && (
+            {isUserLogged() && (
               <div className="flex items-center gap-3">
-                <Button variant="secondary" asChild>
-                  <Link href={`/${params.locale}/edit-scene/${scene.slug}`}>
-                    {t2("Button.edit")}
-                  </Link>
-                </Button>
-                <Separator
-                  className="h-8 w-[1px] bg-black"
-                  orientation="vertical"
+                <LikeSceneButton
+                  sceneId={scene.id}
+                  userId={session!.user.id}
+                  locale={params.locale}
+                  isSceneLiked={scene.isLiked}
                 />
-                <DeleteSceneButton locale={params.locale} slug={scene.slug} />
+
+                {isUserAdmin() && (
+                  <>
+                    <Separator
+                      className="h-8 w-[1px] bg-gray-400"
+                      orientation="vertical"
+                    />
+                    <Button variant="secondary" asChild>
+                      <Link href={`/${params.locale}/edit-scene/${scene.slug}`}>
+                        {t2("Button.edit")}
+                      </Link>
+                    </Button>
+                    <Separator
+                      className="h-8 w-[1px] bg-gray-400"
+                      orientation="vertical"
+                    />
+                    <DeleteSceneButton
+                      locale={params.locale}
+                      slug={scene.slug}
+                    />
+                  </>
+                )}
               </div>
             )}
           </div>
@@ -114,4 +137,24 @@ export default async function ScenePage({ params }: ScenePageParams) {
       </section>
     </main>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: ScenePageParams): Promise<Metadata> {
+  const { data } = await getSceneData(params.slug);
+
+  if (!data) return { title: "Idiomas e filmes" };
+  return {
+    title: data.title,
+    openGraph: {
+      images: [
+        {
+          url: data.thumb_url,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
 }
