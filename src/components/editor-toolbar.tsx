@@ -1,4 +1,4 @@
-import { useEditorStore } from "@/store/use-editor";
+import { useEditorStore } from "@/lib/tiptap/use-editor";
 import {
   AlignCenterIcon,
   AlignJustifyIcon,

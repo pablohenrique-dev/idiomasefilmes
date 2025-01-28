@@ -1,6 +1,6 @@
 "use client";
 
-import { useEditorStore } from "@/store/use-editor";
+import { useEditorStore } from "@/lib/tiptap/use-editor";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
