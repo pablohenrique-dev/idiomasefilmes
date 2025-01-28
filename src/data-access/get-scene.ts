@@ -1,7 +1,12 @@
 import { prisma } from "@/prisma";
-import { Scene } from "@prisma/client";
+import { Question, Scene } from "@prisma/client";
 
-interface SceneWithLikeInfo extends Scene {
+interface SceneWithRelations extends Scene {
+  LikedScene: { id: string }[];
+  Question: Question[];
+}
+
+interface SceneWithLikeInfo extends Omit<SceneWithRelations, "LikedScene"> {
   isLiked: boolean;
 }
 interface GetScenesDataResponse {
@@ -25,6 +30,7 @@ export async function getSceneData(
               select: { id: true },
             }
           : false,
+        Question: true,
       },
     });
 

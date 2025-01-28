@@ -6,14 +6,14 @@ import { getSceneData } from "@/data-access/get-scene";
 import { getScenesData } from "@/data-access/get-scenes";
 import { flags } from "@/utils/constants/flags";
 import dayjs from "dayjs";
-import { ScrollText } from "lucide-react";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DeleteSceneButton } from "./delete-scene-button";
 import { LikeSceneButton } from "./like-scene-button";
-import { Metadata } from "next";
+import { SceneTabs } from "./scene-tabs";
 
 interface ScenePageParams {
   params: {
@@ -110,18 +110,7 @@ export default async function ScenePage({ params }: ScenePageParams) {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
-          <div className="mt-8 rounded border border-gray-200">
-            <div className="flex items-center gap-3 border-b border-gray-200 px-5 py-3">
-              <div className="flex aspect-square w-8 items-center justify-center rounded border border-gray-400 bg-black">
-                <ScrollText className="w-5 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold">Script</h3>
-            </div>
-            <div
-              className="p-5"
-              dangerouslySetInnerHTML={{ __html: scene.script }}
-            ></div>
-          </div>
+          <SceneTabs script={scene.script} questions={scene.Question} />
         </section>
       </div>
       <section className="container mb-8 animate-fade-top">
