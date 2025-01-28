@@ -1,6 +1,7 @@
 import { Scene } from "@/@types/scene";
 import { useToast } from "@/hooks/use-toast";
-import { sceneFormSchema, sceneFormType } from "@/schemas/scene-form-schema";
+import { useBoundStore } from "@/lib/zustand/use-bound-store";
+import { sceneFormSchema, SceneFormType } from "@/schemas/scene-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
@@ -27,16 +28,16 @@ interface useSceneFormParams {
 export function useSceneForm({
   locale,
   defaultValues: {
-    accent,
-    genre,
     level,
-    scene_url,
+    title,
+    genre,
     script,
     source,
+    accent,
+    scene_url,
     thumb_url,
-    title,
   },
-  action,
+  // action,
 }: useSceneFormParams) {
   const { data: session } = useSession();
   const { toast } = useToast();
@@ -46,8 +47,9 @@ export function useSceneForm({
   const t = useTranslations("ScenePage");
   const t2 = useTranslations("Components");
   const schema = sceneFormSchema(t);
+  const { setScene } = useBoundStore((state) => state);
 
-  const form = useForm<sceneFormType>({
+  const form = useForm<SceneFormType>({
     resolver: zodResolver(schema),
     defaultValues: {
       title: title ?? "",
@@ -61,20 +63,10 @@ export function useSceneForm({
     },
   });
 
-  async function onSubmit(data: sceneFormType) {
-    const [successMessage, errorMessage] = await action(
-      {
-        authorId: session!.user.id,
-        ...data,
-      },
-      locale,
-    );
-    if (successMessage) {
-      toast({ title: successMessage });
-      router.push("/");
-    } else if (errorMessage) {
-      toast({ title: errorMessage, variant: "destructive" });
-    }
+  async function onSubmit(data: SceneFormType) {
+    const scene = { authorId: session!.user.id, ...data };
+    setScene(scene);
+    router.push(`/${locale}/create-questions`);
   }
 
   return { onSubmit, toast, t, t2, form };

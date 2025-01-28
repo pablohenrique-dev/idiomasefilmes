@@ -19,4 +19,4 @@ export const sceneFormSchema = (t: ReturnType<typeof useTranslations>) =>
     }),
   });
 
-export type sceneFormType = z.infer<ReturnType<typeof sceneFormSchema>>;
+export type SceneFormType = z.infer<ReturnType<typeof sceneFormSchema>>;

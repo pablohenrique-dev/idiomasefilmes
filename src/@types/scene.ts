@@ -5,7 +5,7 @@ export interface Scene {
   thumb_url: string;
   scene_url: string;
   source: string;
-  genre: string[];
+  genre: string[] | undefined;
   level: string;
-  accent: string[];
+  accent: string[] | undefined;
 }

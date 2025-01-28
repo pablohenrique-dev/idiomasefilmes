@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useSceneForm } from "@/hooks/use-scene-form";
+import { useBoundStore } from "@/lib/zustand/use-bound-store";
 import {
   accentOptions,
   genreOptions,
@@ -32,18 +33,20 @@ interface CreateSceneFormProps {
 }
 
 export function CreateSceneForm({ locale }: CreateSceneFormProps) {
+  const { scene } = useBoundStore((state) => state);
+
   const { form, t, t2, onSubmit } = useSceneForm({
     locale,
     action: createSceneAction,
     defaultValues: {
-      accent: undefined,
-      genre: undefined,
-      level: "",
-      scene_url: "",
-      script: "",
-      source: "",
-      thumb_url: "",
-      title: "",
+      accent: scene.accent ?? undefined,
+      genre: scene.genre ?? undefined,
+      level: scene.level ?? "",
+      scene_url: scene.scene_url ?? "",
+      script: scene.script ?? "",
+      source: scene.source ?? "",
+      thumb_url: scene.thumb_url ?? "",
+      title: scene.title ?? "",
     },
   });
 
