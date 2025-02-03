@@ -3,19 +3,25 @@ import { z } from "zod";
 
 export const sceneFormSchema = (t: ReturnType<typeof useTranslations>) =>
   z.object({
-    title: z.string().min(1, { message: t("form.title.lengthErrorMessage") }),
-    script: z.string().min(1, { message: t("form.script.lengthErrorMessage") }),
+    title: z.string().min(1, { message: t("scene.title.lengthErrorMessage") }),
+    script: z
+      .string()
+      .min(1, { message: t("scene.script.lengthErrorMessage") }),
     thumb_url: z
       .string()
-      .min(1, { message: t("form.thumb.lengthErrorMessage") }),
+      .min(1, { message: t("scene.thumb.lengthErrorMessage") }),
     scene_url: z
       .string()
-      .min(1, { message: t("form.scene.lengthErrorMessage") }),
-    source: z.string().min(1, { message: t("form.origin.lengthErrorMessage") }),
-    genre: z.array(z.string(), { message: t("form.genre.lengthErrorMessage") }),
-    level: z.string().min(1, { message: t("form.level.lengthErrorMessage") }),
+      .min(1, { message: t("scene.scene.lengthErrorMessage") }),
+    source: z
+      .string()
+      .min(1, { message: t("scene.origin.lengthErrorMessage") }),
+    genre: z.array(z.string(), {
+      message: t("scene.genre.lengthErrorMessage"),
+    }),
+    level: z.string().min(1, { message: t("scene.level.lengthErrorMessage") }),
     accent: z.array(z.string(), {
-      message: t("form.accent.lengthErrorMessage"),
+      message: t("scene.accent.lengthErrorMessage"),
     }),
   });
 

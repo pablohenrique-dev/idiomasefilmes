@@ -10,7 +10,13 @@
     "edit": {
       "title": "Editar cena"
     },
-    "form": {
+    "tabs": {
+      "script": "Script",
+      "questions": "Questões"
+    }
+  },
+  "Form": {
+    "scene": {
       "title": {
         "label": "Título",
         "placeholder": "Título da cena",
@@ -50,7 +56,32 @@
         "label": "Gênero",
         "placeholder": "Selecione um ou mais gêneros",
         "lengthErrorMessage": "Pelo menos um valor precisa ser selecionado"
+      },
+      "button": {
+        "next": "Próximo"
       }
+    },
+    "questions": {
+      "statement": {
+        "label": "Enunciado da questão",
+        "placeholder": "Digite o enunciado da questão",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "options": {
+        "label": "Adicione as alternativas",
+        "placeholder": "Alternativa",
+        "lengthErrorMessage": "Esse campo precisa ser preenchido"
+      },
+      "button": {
+        "correctAlternative": "Alternativa correta",
+        "newQuestion": "Adicionar nova questão",
+        "update": "Atualizar",
+        "create": "Criar"
+      }
+    },
+    "stepper": {
+      "scene": "Cena",
+      "questions": "Questões"
     }
   },
   "SingleScenePage": {

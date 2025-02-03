@@ -1,6 +1,5 @@
 "use client";
 
-import { createSceneAction } from "@/actions/create-scene";
 import { Editor } from "@/components/editor";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,9 +34,8 @@ interface CreateSceneFormProps {
 export function CreateSceneForm({ locale }: CreateSceneFormProps) {
   const { scene } = useBoundStore((state) => state);
 
-  const { form, t, t2, onSubmit } = useSceneForm({
+  const { form, t, onSubmit } = useSceneForm({
     locale,
-    action: createSceneAction,
     defaultValues: {
       accent: scene.accent ?? undefined,
       genre: scene.genre ?? undefined,
@@ -61,9 +59,9 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
           name="title"
           render={({ field }) => (
             <FormItem className="!mt-3 sm:!mt-4">
-              <FormLabel>{t("form.title.label")}</FormLabel>
+              <FormLabel>{t("scene.title.label")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("form.title.placeholder")} {...field} />
+                <Input placeholder={t("scene.title.placeholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -74,9 +72,9 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
           name="source"
           render={({ field }) => (
             <FormItem className="!mt-3 sm:!mt-4">
-              <FormLabel>{t("form.origin.label")}</FormLabel>
+              <FormLabel>{t("scene.origin.label")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("form.origin.placeholder")} {...field} />
+                <Input placeholder={t("scene.origin.placeholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -88,9 +86,9 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
           name="thumb_url"
           render={({ field }) => (
             <FormItem className="!mt-3 sm:!mt-4">
-              <FormLabel>{t("form.thumb.label")}</FormLabel>
+              <FormLabel>{t("scene.thumb.label")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("form.thumb.placeholder")} {...field} />
+                <Input placeholder={t("scene.thumb.placeholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -101,9 +99,9 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
           name="scene_url"
           render={({ field }) => (
             <FormItem className="!mt-3 sm:!mt-4">
-              <FormLabel>{t("form.scene.label")}</FormLabel>
+              <FormLabel>{t("scene.scene.label")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("form.scene.placeholder")} {...field} />
+                <Input placeholder={t("scene.scene.placeholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -115,14 +113,14 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
             name="level"
             render={({ field }) => (
               <FormItem className="!mt-3 sm:!mt-4">
-                <FormLabel>{t("form.level.label")}</FormLabel>
+                <FormLabel>{t("scene.level.label")}</FormLabel>
                 <FormControl>
                   <Select
                     onValueChange={(value) => field.onChange(value)}
                     defaultValue={field.value}
                   >
                     <SelectTrigger className="text-">
-                      <SelectValue placeholder={t("form.level.placeholder")} />
+                      <SelectValue placeholder={t("scene.level.placeholder")} />
                     </SelectTrigger>
                     <SelectContent>
                       {levelOptions.map((option) => (
@@ -146,11 +144,11 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
             name="genre"
             render={({ field }) => (
               <FormItem className="!mt-3 flex-1 sm:!mt-4">
-                <FormLabel>{t("form.genre.label")}</FormLabel>
+                <FormLabel>{t("scene.genre.label")}</FormLabel>
                 <FormControl>
                   <MultiSelect
                     options={genreOptions[locale as keyof typeof accentOptions]}
-                    placeholder={t("form.genre.placeholder")}
+                    placeholder={t("scene.genre.placeholder")}
                     onValueChange={field.onChange}
                   />
                 </FormControl>
@@ -163,13 +161,13 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
             name="accent"
             render={({ field }) => (
               <FormItem className="!mt-3 flex-1 sm:!mt-4">
-                <FormLabel>{t("form.accent.label")}</FormLabel>
+                <FormLabel>{t("scene.accent.label")}</FormLabel>
                 <FormControl>
                   <MultiSelect
                     options={
                       accentOptions[locale as keyof typeof accentOptions]
                     }
-                    placeholder={t("form.accent.placeholder")}
+                    placeholder={t("scene.accent.placeholder")}
                     onValueChange={field.onChange}
                   />
                 </FormControl>
@@ -183,7 +181,7 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
           name="script"
           render={({ field }) => (
             <FormItem className="col-span-full !mt-3 sm:!mt-4">
-              <FormLabel>{t("form.script.label")}</FormLabel>
+              <FormLabel>{t("scene.script.label")}</FormLabel>
               <FormControl>
                 <Editor
                   content={field.value}
@@ -195,7 +193,7 @@ export function CreateSceneForm({ locale }: CreateSceneFormProps) {
           )}
         />
         <Button className="col-span-1 !mt-4 w-fit" type="submit">
-          {t2("Button.create")}
+          {t("scene.button.next")}
         </Button>
       </form>
     </Form>

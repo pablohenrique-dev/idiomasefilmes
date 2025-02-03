@@ -1,4 +1,3 @@
-import { Scene } from "@/@types/scene";
 import { useToast } from "@/hooks/use-toast";
 import { useBoundStore } from "@/lib/zustand/use-bound-store";
 import { sceneFormSchema, SceneFormType } from "@/schemas/scene-form-schema";
@@ -22,7 +21,6 @@ export interface DefaultValues {
 interface useSceneFormParams {
   locale: string;
   defaultValues: DefaultValues;
-  action: (data: Scene, locale: string) => Promise<(string | null)[]>;
 }
 
 export function useSceneForm({
@@ -37,15 +35,13 @@ export function useSceneForm({
     scene_url,
     thumb_url,
   },
-  // action,
 }: useSceneFormParams) {
   const { data: session } = useSession();
   const { toast } = useToast();
 
   const router = useRouter();
 
-  const t = useTranslations("ScenePage");
-  const t2 = useTranslations("Components");
+  const t = useTranslations("Form");
   const schema = sceneFormSchema(t);
   const { setScene } = useBoundStore((state) => state);
 
@@ -69,5 +65,5 @@ export function useSceneForm({
     router.push(`/${locale}/create-questions`);
   }
 
-  return { onSubmit, toast, t, t2, form };
+  return { onSubmit, toast, t, form };
 }

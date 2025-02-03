@@ -33,9 +33,7 @@ export function CreateQuestionForm({ locale }: CreateQuestionFormProps) {
   };
 
   const {
-    // t,
-    // t2,
-    // toast,
+    t,
     control,
     append,
     errors,
@@ -53,12 +51,13 @@ export function CreateQuestionForm({ locale }: CreateQuestionFormProps) {
       {fields.map((field, questionIndex) => (
         <div key={field.id} className="">
           <label htmlFor={`questions.${questionIndex}.statement`}>
-            Adicione o enunciado da Questão {questionIndex + 1}
+            {t("questions.statement.label")} {questionIndex + 1}
           </label>
           <Input
             id={`questions.${questionIndex}.statement`}
             {...register(`questions.${questionIndex}.statement`)}
             className="mb-2 block w-full border p-2"
+            placeholder={t("questions.statement.placeholder")}
           />
           {errors.questions?.[questionIndex]?.statement && (
             <span className="text-red-500">
@@ -77,7 +76,7 @@ export function CreateQuestionForm({ locale }: CreateQuestionFormProps) {
                     {...register(
                       `questions.${questionIndex}.options.${optionIndex}`,
                     )}
-                    placeholder={`Alternativa ${optionIndex + 1}`}
+                    placeholder={`${t("questions.options.placeholder")} ${optionIndex + 1}`}
                     className="w-full"
                   />
                   {errors.questions?.[questionIndex]?.options?.[
@@ -114,7 +113,7 @@ export function CreateQuestionForm({ locale }: CreateQuestionFormProps) {
                         )}
                         htmlFor={`question-${questionIndex}-option-${optionIndex}`}
                       >
-                        Questão correta
+                        {t("questions.button.correctAlternative")}
                       </label>
                     </>
                   )}
@@ -146,11 +145,11 @@ export function CreateQuestionForm({ locale }: CreateQuestionFormProps) {
           }
           variant="secondary"
         >
-          Adicionar Nova Questão
+          {t("questions.button.newQuestion")}
         </Button>
 
         <Button variant="default" type="submit">
-          Salvar
+          {t("questions.button.create")}
         </Button>
       </div>
     </form>

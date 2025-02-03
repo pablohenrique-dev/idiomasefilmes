@@ -1,6 +1,6 @@
 {
   "HomePage": {
-    "title": "Train your listening in a new language with the help of movies",
+    "title": "Train your listening skills in a new language with the help of movies",
     "about": "Go to the about page"
   },
   "ScenePage": {
@@ -10,47 +10,78 @@
     "edit": {
       "title": "Edit scene"
     },
-    "form": {
+    "tabs": {
+      "script": "Script",
+      "questions": "Questions"
+    }
+  },
+  "Form": {
+    "scene": {
       "title": {
         "label": "Title",
         "placeholder": "Scene title",
-        "lengthErrorMessage": "This field must be filled in"
+        "lengthErrorMessage": "This field must be filled"
       },
       "origin": {
         "label": "Origin",
-        "placeholder": "Ex: Harry Potter/Breaking Bad...",
-        "lengthErrorMessage": "This field must be filled in"
+        "placeholder": "E.g.: Harry Potter/Breaking Bad...",
+        "lengthErrorMessage": "This field must be filled"
       },
       "thumb": {
         "label": "Cover photo",
         "placeholder": "Cover photo link",
-        "lengthErrorMessage": "This field must be filled in"
+        "lengthErrorMessage": "This field must be filled"
       },
       "scene": {
         "label": "Scene link",
         "placeholder": "Scene link",
-        "lengthErrorMessage": "This field must be filled in"
+        "lengthErrorMessage": "This field must be filled"
       },
       "script": {
         "label": "Scene script",
         "placeholder": "",
-        "lengthErrorMessage": "This field must be filled in"
+        "lengthErrorMessage": "This field must be filled"
       },
       "level": {
         "label": "Level",
         "placeholder": "Select a level",
-        "lengthErrorMessage": "This field must be filled in"
+        "lengthErrorMessage": "This field must be filled"
       },
       "accent": {
         "label": "Accent",
         "placeholder": "Select an accent",
-        "lengthErrorMessage": "This field must be filled in"
+        "lengthErrorMessage": "This field must be filled"
       },
       "genre": {
         "label": "Genre",
         "placeholder": "Select one or more genres",
         "lengthErrorMessage": "At least one value must be selected"
+      },
+      "button": {
+        "next": "Next"
       }
+    },
+    "questions": {
+      "statement": {
+        "label": "Question statement",
+        "placeholder": "Enter the question statement",
+        "lengthErrorMessage": "This field must be filled"
+      },
+      "options": {
+        "label": "Add options",
+        "placeholder": "Option",
+        "lengthErrorMessage": "This field must be filled"
+      },
+      "button": {
+        "correctAlternative": "Correct alternative",
+        "newQuestion": "Add new question",
+        "update": "Update",
+        "create": "Create"
+      }
+    },
+    "stepper": {
+      "scene": "Scene",
+      "questions": "Questions"
     }
   },
   "SingleScenePage": {
@@ -58,7 +89,7 @@
   },
   "Components": {
     "Button": {
-      "SignIn": "Sign In",
+      "SignIn": "Sign in",
       "close": "Close",
       "clear": "Clear",
       "create": "Create",

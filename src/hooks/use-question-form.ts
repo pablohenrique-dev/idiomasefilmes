@@ -33,9 +33,8 @@ export function useQuestionForm({
 
   const router = useRouter();
 
-  const t = useTranslations("ScenePage");
-  const t2 = useTranslations("Components");
-
+  const t = useTranslations("Form");
+  const schema = questionFormSchema(t);
   const { scene } = useBoundStore((state) => state);
 
   const {
@@ -44,7 +43,7 @@ export function useQuestionForm({
     handleSubmit,
     formState: { errors },
   } = useForm<QuestionFormType>({
-    resolver: zodResolver(questionFormSchema),
+    resolver: zodResolver(schema),
     defaultValues,
   });
 
@@ -76,8 +75,6 @@ export function useQuestionForm({
 
   return {
     t,
-    t2,
-    toast,
     append,
     fields,
     errors,

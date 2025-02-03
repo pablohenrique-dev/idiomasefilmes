@@ -10,17 +10,17 @@ interface StepperProps {
 }
 
 export function Stepper({ locale }: StepperProps) {
-  const t = useTranslations("ScenePage");
+  const t = useTranslations("Form");
   const pathname = usePathname();
 
   const steps = [
     {
       href: `/${locale}/create-scene`,
-      label: "Cena",
+      label: t("stepper.scene"),
     },
     {
       href: `/${locale}/create-questions`,
-      label: "Questões",
+      label: t("stepper.questions"),
     },
   ];
 

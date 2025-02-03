@@ -10,7 +10,13 @@
     "edit": {
       "title": "Editar escena"
     },
-    "form": {
+    "tabs": {
+      "script": "Guion",
+      "questions": "Preguntas"
+    }
+  },
+  "Form": {
+    "scene": {
       "title": {
         "label": "Título",
         "placeholder": "Título de la escena",
@@ -18,7 +24,7 @@
       },
       "origin": {
         "label": "Origen",
-        "placeholder": "Ej: Harry Potter/Breaking Bad...",
+        "placeholder": "Ej.: Harry Potter/Breaking Bad...",
         "lengthErrorMessage": "Este campo debe ser completado"
       },
       "thumb": {
@@ -50,7 +56,32 @@
         "label": "Género",
         "placeholder": "Selecciona uno o más géneros",
         "lengthErrorMessage": "Debe seleccionarse al menos un valor"
+      },
+      "button": {
+        "next": "Siguiente"
       }
+    },
+    "questions": {
+      "statement": {
+        "label": "Enunciado de la pregunta",
+        "placeholder": "Escribe el enunciado de la pregunta",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "options": {
+        "label": "Añadir opciones",
+        "placeholder": "Opción",
+        "lengthErrorMessage": "Este campo debe ser completado"
+      },
+      "button": {
+        "correctAlternative": "Opción correcta",
+        "newQuestion": "Añadir nueva pregunta",
+        "update": "Actualizar",
+        "create": "Crear"
+      }
+    },
+    "stepper": {
+      "scene": "Escena",
+      "questions": "Preguntas"
     }
   },
   "SingleScenePage": {
@@ -58,7 +89,7 @@
   },
   "Components": {
     "Button": {
-      "SignIn": "Entrar",
+      "SignIn": "Iniciar sesión",
       "close": "Cerrar",
       "clear": "Limpiar",
       "create": "Crear",
@@ -66,7 +97,7 @@
       "exclude": "Eliminar"
     },
     "search": "Buscar...",
-    "selectAll": "Seleccionar todos",
+    "selectAll": "Seleccionar todo",
     "filter": {
       "level": "Nivel"
     },
