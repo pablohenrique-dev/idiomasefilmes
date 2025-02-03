@@ -39,7 +39,7 @@ export function Question({ question, isAnswerVisible }: QuestionProps) {
                 <Check className="size-4 text-green-800" />
               </span>
             )}
-            {option === selectedOption && isAnswerVisible && (
+            {option !== selectedOption && isAnswerVisible && (
               <span className="rounded bg-red-200 p-[2px]">
                 <X className="size-4 text-red-800" />
               </span>
