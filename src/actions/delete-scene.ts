@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
+import { revalidatePath } from "next/cache";
 
 const messages = {
   success: {
@@ -24,6 +25,8 @@ export async function deleteSceneAction(slug: string, locale: string) {
         slug,
       },
     });
+
+    revalidatePath("/[locale]", "page");
 
     return [messages.success[locale as "pt" | "en" | "es"], null];
   } catch {

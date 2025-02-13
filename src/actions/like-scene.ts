@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
+import { revalidatePath } from "next/cache";
 
 const messages = {
   success: {
@@ -29,6 +30,8 @@ export async function likeSceneAction(
         userId,
       },
     });
+
+    revalidatePath("/[locale]/[slug]", "page");
 
     return [messages.success[locale as "pt" | "en" | "es"], null];
   } catch {

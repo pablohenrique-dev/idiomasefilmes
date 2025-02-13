@@ -5,6 +5,7 @@ import { Question } from "@/@types/question";
 import { prisma } from "@/prisma";
 import { createSlugFromText } from "@/utils/create-slug-from-text";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { revalidatePath } from "next/cache";
 
 const messages = {
   success: {
@@ -30,7 +31,7 @@ export async function createSceneAndQuestionsAction(
   data: Scene,
   questions: Omit<Question, "sceneId" | "id">[],
   locale: string,
-) {
+): Promise<[string | null, string | null]> {
   try {
     const sceneData = { slug: createSlugFromText(data.title), ...data };
 
@@ -56,6 +57,9 @@ export async function createSceneAndQuestionsAction(
         timeout: 10000,
       },
     );
+
+    revalidatePath("/[locale]", "page");
+
     return [messages.success[locale as "pt" | "en" | "es"], null];
   } catch (error) {
     if (error instanceof PrismaClientKnownRequestError) {
