@@ -1,5 +1,5 @@
-import { Question } from "@/@types/question";
-import { createSceneAndQuestionsAction } from "@/actions/create-scene-and-questions";
+import { Question as IQuestion } from "@/@types/question";
+import { Scene } from "@/@types/scene";
 import { useToast } from "@/hooks/use-toast";
 import { resetAllSlices, useBoundStore } from "@/lib/zustand/use-bound-store";
 import {
@@ -7,6 +7,7 @@ import {
   QuestionFormType,
 } from "@/schemas/question-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Question } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -18,16 +19,28 @@ interface QuestionDefaultValues {
   correctAnswer: number;
 }
 
-interface useQuestionFormParams {
+interface UseQuestionFormParams {
   locale: string;
   defaultValues: { questions: QuestionDefaultValues[] };
-  action?: (data: Question, locale: string) => Promise<(string | null)[]>;
+  editQuestionsAction?: (
+    data: Question[],
+    locale: string,
+  ) => Promise<[string | null, string | null]>;
+  createSceneAndQuestionsAction?: (
+    data: Scene,
+    questions: Omit<IQuestion, "sceneId" | "id">[],
+    locale: string,
+  ) => Promise<[string | null, string | null]>;
+  sceneData?: Scene;
+  sceneId?: string;
 }
 
 export function useQuestionForm({
   locale,
   defaultValues,
-}: useQuestionFormParams) {
+  createSceneAndQuestionsAction,
+  editQuestionsAction,
+}: UseQuestionFormParams) {
   const { data: session } = useSession();
   const { toast } = useToast();
 
@@ -47,20 +60,54 @@ export function useQuestionForm({
     defaultValues,
   });
 
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: "questions",
   });
 
-  async function onSubmit(data: QuestionFormType) {
+  function handleDeleteQuestion(questionIndex: number) {
+    const confirmDelete = confirm(
+      t("questions.messages.confirmDelete") + (questionIndex + 1),
+    );
+
+    if (!confirmDelete) return;
+
+    remove(questionIndex);
+  }
+
+  async function onSubmitCreateSceneAndQuestions(data: QuestionFormType) {
     const questions = data.questions.map((question) => ({
       authorId: session!.user.id,
       ...question,
     }));
 
+    if (!createSceneAndQuestionsAction) return;
+
     const [successMessage, errorMessage] = await createSceneAndQuestionsAction(
       scene,
       questions,
+      locale,
+    );
+
+    if (successMessage) {
+      resetAllSlices();
+      toast({ title: successMessage });
+      router.push("/");
+    } else if (errorMessage) {
+      toast({ title: errorMessage, variant: "destructive" });
+    }
+  }
+
+  async function onSubmitEditQuestions(data: Question[]) {
+    // const questions = data.questions.map((question) => ({
+    //   authorId: session!.user.id,
+    //   ...question,
+    // }));
+
+    if (!editQuestionsAction) return;
+
+    const [successMessage, errorMessage] = await editQuestionsAction(
+      data,
       locale,
     );
 
@@ -80,7 +127,9 @@ export function useQuestionForm({
     errors,
     control,
     register,
-    onSubmit,
     handleSubmit,
+    handleDeleteQuestion,
+    onSubmitEditQuestions,
+    onSubmitCreateSceneAndQuestions,
   };
 }
