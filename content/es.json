@@ -1,6 +1,6 @@
 {
   "HomePage": {
-    "title": "Entrena tu comprensión auditiva en un nuevo idioma con la ayuda de películas",
+    "title": "Entrena tu listening en un nuevo idioma con la ayuda de películas",
     "about": "Ir a la página sobre"
   },
   "ScenePage": {
@@ -20,63 +20,68 @@
       "title": {
         "label": "Título",
         "placeholder": "Título de la escena",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "origin": {
         "label": "Origen",
-        "placeholder": "Ej.: Harry Potter/Breaking Bad...",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "placeholder": "Ej: Harry Potter/Breaking Bad...",
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "thumb": {
         "label": "Foto de portada",
         "placeholder": "Enlace de la foto de portada",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "scene": {
         "label": "Enlace de la escena",
         "placeholder": "Enlace de la escena",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "script": {
         "label": "Guion de la escena",
         "placeholder": "",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "level": {
         "label": "Nivel",
         "placeholder": "Selecciona un nivel",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "accent": {
         "label": "Acento",
         "placeholder": "Selecciona un acento",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "genre": {
         "label": "Género",
         "placeholder": "Selecciona uno o más géneros",
-        "lengthErrorMessage": "Debe seleccionarse al menos un valor"
+        "lengthErrorMessage": "Al menos un valor debe ser seleccionado"
       },
       "button": {
         "next": "Siguiente"
       }
     },
     "questions": {
+      "title": "Editar preguntas",
       "statement": {
         "label": "Enunciado de la pregunta",
-        "placeholder": "Escribe el enunciado de la pregunta",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "placeholder": "Ingresa el enunciado de la pregunta",
+        "lengthErrorMessage": "Este campo es obligatorio"
       },
       "options": {
         "label": "Añadir opciones",
         "placeholder": "Opción",
-        "lengthErrorMessage": "Este campo debe ser completado"
+        "lengthErrorMessage": "Este campo es obligatorio"
+      },
+      "messages": {
+        "confirmDelete": "¿Estás seguro de que deseas eliminar la pregunta número "
       },
       "button": {
-        "correctAlternative": "Opción correcta",
+        "correctAlternative": "Alternativa correcta",
         "newQuestion": "Añadir nueva pregunta",
         "update": "Actualizar",
-        "create": "Crear"
+        "create": "Crear",
+        "delete": "Eliminar pregunta"
       }
     },
     "stepper": {
@@ -85,7 +90,16 @@
     }
   },
   "SingleScenePage": {
-    "listTitle": "Otras escenas"
+    "listTitle": "Otras escenas",
+    "tabs": {
+      "buttons": {
+        "show": "Mostrar",
+        "hide": "Ocultar",
+        "edit-questions": "Editar preguntas",
+        "questions": "Preguntas",
+        "script": "Script"
+      }
+    }
   },
   "Components": {
     "Button": {
@@ -94,16 +108,16 @@
       "clear": "Limpiar",
       "create": "Crear",
       "edit": "Editar",
-      "exclude": "Eliminar"
+      "exclude": "Excluir"
     },
     "search": "Buscar...",
-    "selectAll": "Seleccionar todo",
+    "selectAll": "Seleccionar todos",
     "filter": {
       "level": "Nivel"
     },
     "SelectLanguageLabel": "Selecciona un idioma:",
     "confirmMessage": {
-      "delete": "¿Realmente deseas eliminar esta escena?"
+      "delete": "¿Estás seguro de que deseas eliminar esta escena?"
     }
   }
 }
