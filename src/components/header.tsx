@@ -94,7 +94,7 @@ export default async function Header({ locale: defaultLocale }: HeaderProps) {
                       <DropdownMenuItem>
                         <Link
                           className="w-full rounded-lg bg-[#F5F5F5] px-4 py-2 text-center"
-                          href={`${defaultLocale}/create-scene`}
+                          href={`/create-scene`}
                         >
                           {t("Button.create")}
                         </Link>
