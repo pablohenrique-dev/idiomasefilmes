@@ -110,7 +110,11 @@ export default async function ScenePage({ params }: ScenePageParams) {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
-          <SceneTabs script={scene.script} questions={scene.Question} />
+          <SceneTabs
+            script={scene.script}
+            questions={scene.Question}
+            user={session?.user}
+          />
         </section>
       </div>
       <section className="container mb-8 animate-fade-top">
