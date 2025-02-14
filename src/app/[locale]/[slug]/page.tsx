@@ -113,7 +113,7 @@ export default async function ScenePage({ params }: ScenePageParams) {
           <SceneTabs
             script={scene.script}
             questions={scene.Question}
-            user={session?.user}
+            sceneSlug={scene.slug}
           />
         </section>
       </div>

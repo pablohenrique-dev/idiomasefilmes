@@ -33,6 +33,7 @@ interface UseQuestionFormParams {
   ) => Promise<[string | null, string | null]>;
   sceneData?: Scene;
   sceneId?: string;
+  sceneSlug: string | null;
 }
 
 export function useQuestionForm({
@@ -40,6 +41,7 @@ export function useQuestionForm({
   defaultValues,
   createSceneAndQuestionsAction,
   editQuestionsAction,
+  sceneSlug,
 }: UseQuestionFormParams) {
   const { data: session } = useSession();
   const { toast } = useToast();
@@ -99,11 +101,6 @@ export function useQuestionForm({
   }
 
   async function onSubmitEditQuestions(data: Question[]) {
-    // const questions = data.questions.map((question) => ({
-    //   authorId: session!.user.id,
-    //   ...question,
-    // }));
-
     if (!editQuestionsAction) return;
 
     const [successMessage, errorMessage] = await editQuestionsAction(
@@ -114,7 +111,7 @@ export function useQuestionForm({
     if (successMessage) {
       resetAllSlices();
       toast({ title: successMessage });
-      router.push("/");
+      router.push(`/${locale}/${sceneSlug}?active-tab=questions`);
     } else if (errorMessage) {
       toast({ title: errorMessage, variant: "destructive" });
     }

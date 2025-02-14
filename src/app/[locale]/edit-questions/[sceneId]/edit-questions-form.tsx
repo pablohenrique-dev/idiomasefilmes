@@ -8,6 +8,7 @@ import { useQuestionForm } from "@/hooks/use-question-form";
 import { cn } from "@/lib/utils";
 import { QuestionFormType } from "@/schemas/question-form-schema";
 import { Question } from "@prisma/client";
+import { useSearchParams } from "next/navigation";
 import { Controller } from "react-hook-form";
 
 interface EditQuestionsFormProps {
@@ -19,6 +20,10 @@ export function EditQuestionsForm({
   questions,
   locale,
 }: EditQuestionsFormProps) {
+  const searchParams = useSearchParams();
+
+  const sceneSlug = searchParams.get("scene-slug");
+
   const defaultValues = {
     questions: questions?.length
       ? questions.map((question) => ({
@@ -44,7 +49,12 @@ export function EditQuestionsForm({
     register,
     handleSubmit,
     handleDeleteQuestion,
-  } = useQuestionForm({ locale, defaultValues, editQuestionsAction });
+  } = useQuestionForm({
+    locale,
+    defaultValues,
+    editQuestionsAction,
+    sceneSlug,
+  });
 
   function handleEditQuestionsSubmit(formData: QuestionFormType) {
     const editedQuestions = formData.questions.map((question, index) => ({

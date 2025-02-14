@@ -10,9 +10,10 @@ import { useTranslations } from "next-intl";
 
 interface QuestionsProps {
   questions: IQuestion[];
+  sceneSlug: string;
 }
 
-export function Questions({ questions }: QuestionsProps) {
+export function Questions({ questions, sceneSlug }: QuestionsProps) {
   const [isAnswersVisible, setIsAnswersVisible] = React.useState(false);
   const { data: session } = useSession();
 
@@ -39,7 +40,9 @@ export function Questions({ questions }: QuestionsProps) {
         )}
         {questions && session && session.user.role === "ADMIN" && (
           <Button asChild variant="outline">
-            <Link href={`/pt/edit-questions/${questions[0].sceneId}`}>
+            <Link
+              href={`/pt/edit-questions/${questions[0].sceneId}?scene-slug=${sceneSlug}`}
+            >
               {t("tabs.buttons.edit-questions")}
             </Link>
           </Button>
